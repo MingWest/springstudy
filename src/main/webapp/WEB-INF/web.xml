@@ -9,7 +9,9 @@
 		<param-value>
 			classpath*:ioc.xml,
 			classpath*:spring_annotation.xml,
-			classpath*:aspectjAop.xml
+			classpath*:aspectjAop.xml,
+			classpath*:schemaAop.xml,
+			classpath*:dynamicAop.xml
 		</param-value>
 	</context-param>
 </web-app>

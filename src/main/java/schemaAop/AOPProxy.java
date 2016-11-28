@@ -1,22 +1,13 @@
-package aspectjAop;
+package schemaAop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.aop.AfterAdvice;
-import org.springframework.aop.AfterReturningAdvice;
-import org.springframework.aop.BeforeAdvice;
 
-@Aspect
+
+//@Aspect
 public class AOPProxy {
 
-	@Pointcut("execution(* aspectjAop.TargetObject.method(..))")
+	//@Pointcut("execution(* aspectjAop.TargetObject.method(..))")
 	public void createPointcut() {
 	}
 
@@ -24,7 +15,7 @@ public class AOPProxy {
 	 * 环绕通知
 	 */
 
-	@Around("aspectjAop.AOPProxy.createPointcut()")
+	//@Around("aspectjAop.AOPProxy.createPointcut()")
 	public Object around(ProceedingJoinPoint pjp) throws Throwable {
 		System.out.println("TargetObject 环绕通知start stopwatch 方法名：" + pjp.getSignature().getName());
 
@@ -39,7 +30,7 @@ public class AOPProxy {
 	/**
 	 * 前置通知
 	 */
-	@Before("aspectjAop.AOPProxy.createPointcut() && args(param1,param2)")
+	//@Before("aspectjAop.AOPProxy.createPointcut() && args(param1,param2)")
 	public void beforeAdviceWIthParam(JoinPoint joinPoint, String param1, int param2) {
 		System.out.println(
 				"beforAdviceWithParam 方法名：" + joinPoint.getSignature().getName() + "参数" + param1 + " " + param2);
@@ -48,15 +39,15 @@ public class AOPProxy {
 	/**
 	 * 前置通知
 	 */
-	@Before("aspectjAop.AOPProxy.createPointcut()")
-	public void BeforeAdvice(JoinPoint joinPoint) {
+	//@Before("aspectjAop.AOPProxy.createPointcut()")
+	public void beforeAdvice(JoinPoint joinPoint) {
 		System.out.println("beforeAdvice 方法名：" + joinPoint.getSignature().getName());
 	}
 
 	/**
 	 * 返回时通知
 	 */
-	@AfterReturning("aspectjAop.AOPProxy.createPointcut()")
+	//@AfterReturning("aspectjAop.AOPProxy.createPointcut()")
 	public void AfterReturningAdvice(JoinPoint joinPoint) {
 		System.out.println("AfterReturningAdvice 方法名：" + joinPoint.getSignature().getName());
 	}
@@ -64,7 +55,7 @@ public class AOPProxy {
 	/**
 	 * 返回时通知
 	 */
-	@AfterReturning(pointcut = "aspectjAop.AOPProxy.createPointcut()", returning = "retVal")
+	//@AfterReturning(pointcut = "aspectjAop.AOPProxy.createPointcut()", returning = "retVal")
 	public void afterReturningAdviceWithParam(JoinPoint joinPoint, Object retVal) {
 		System.out.println("afterReturningAdviceWithParam 方法名：" + joinPoint.getSignature().getName() + " return "
 				+ retVal.toString());
@@ -73,7 +64,7 @@ public class AOPProxy {
 	/**
 	 * 返回后通知
 	 */
-	@After("aspectjAop.AOPProxy.createPointcut()")
+	//@After("aspectjAop.AOPProxy.createPointcut()")
 	public void afterAdvice(JoinPoint joinPoint) {
 		System.out.println("afterAdvice 方法名：" + joinPoint.getSignature().getName());
 	}
@@ -81,7 +72,7 @@ public class AOPProxy {
 	/**
 	 * 抛出后通知
 	 */
-	@AfterThrowing("aspectjAop.AOPProxy.createPointcut()")
+	//@AfterThrowing("aspectjAop.AOPProxy.createPointcut()")
 	public void afterThrowAdvice() {
 		System.out.println("afterThrowAdvice");
 	}

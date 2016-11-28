@@ -27,4 +27,18 @@ public class SpringUtility {
 	public static ApplicationContext getStaticAopHandle() {
 		return SingleClassPathXmlApplicationContext.getSingleClassPathXmlApplicationContext("aspectjAop.xml");
 	}
+	
+	/**
+	 * 得到schema切面句柄
+	 */
+	public static ApplicationContext getSchemaAopHandle() {
+		return SingleClassPathXmlApplicationContext.getSingleClassPathXmlApplicationContext("schemaAop.xml");
+	}
+	
+	/**
+	 * 得到动态切面句柄
+	 */
+	public static ApplicationContext getDynamicAopHandle() {
+		return SingleClassPathXmlApplicationContext.getSingleClassPathXmlApplicationContext("dynamicAop.xml");
+	}
 }
